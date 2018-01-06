@@ -8,18 +8,15 @@
             <script>
                 var gitment = new Gitment({
                 id: location.href, // 可选。默认为 location.href
-                owner: 'howie6879',
-                repo: 'howie6879.github.io',
+                owner: '{{ .Site.Params.comment.owner }}',
+                repo: '{{ .Site.Params.comment.repo }}',
                 oauth: {
-                    client_id: 'fcac95bc977ce2d76103',
-                    client_secret: '1e35e7f20a0577fa2ebe7bdfdb7228ff9435250f',
+                    client_id: '{{ .Site.Params.comment.client_id }}',
+                    client_secret: '{{ .Site.Params.comment.client_secret }}',
                 },
                 })
-                gitment.render('container')
+                gitment.render(document.getElementById('comments'))
             </script>
-        <!-- {{ if .Site.DisqusShortname }} 
-        {{ template "_internal/disqus.html" . }} 
-        {{ end }} -->
     </div>
 </div>
 {{ end }}

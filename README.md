@@ -6,43 +6,58 @@ Gemini is a clear and responsive theme for [hugo](http://gohugo.io/). Ported fro
 
 ![screenshot](images/screenshot.png)
 
+## Description
+
+This project comes from [mjyi](https://github.com/mjyi/Gemini), i made the following changes to be able to continued available:
+
+- Supported a new comment sysytem: [gitment](https://github.com/imsun/gitment)
+- Fixed some parameters in config.toml
+
 ## Installation
 
 ```
 cd ~/path/themes
-git clone https://github.com/mjyi/Gemini.git
+git clone https://github.com/howie6879/Gemini
 ```
 
 ## Configuration
 
 **config.toml**
 ```toml
-baseurl = "https://mjyi.github.io/Gemini/"
-title = "Hugo Theme Gemini"
+baseurl = "http://blog.howie6879.cn"
+title = "howie6879"
 canonifyurls = true
-paginate = 3
+paginate = 6
 languageCode = "en-us"
 MetaDataFormat = "yaml"
 theme = "Gemini"
-googleAnalytics = "" # delete or comment to disable Google Analytics JS generation
-disqusShortname = "mjyi-io" #delete or comment to disable Disqus comments
+googleAnalytics = "6MOOsWAEAomrK0SbuyIj5qHKPmawJXdNtiWbB-6DO3U" # Google 统计
 
 [params]
   Keywords = ""
-  Author = "Gemini"
-  recentPostCount = 7
-  intro = ["I am a iOS Developer", "Work in Hangzhou"]
+  Author = "howie6879"
+  RecentPostCount = 8 
+  Favicon = "/images/favicon.png"
+  Intro = ["浮浮沉沉","努力就好"]
+  SiteComments = false # 评论默认开启 单篇文章中可设置 dis_comments: true 来关闭评论
+  
+[params.comment]
+  owner = "" 
+  repo = ""
+  client_id = ""
+  client_secret = ""
 
-[[params.social]]
-  title = "Email"
-  url = "mailto:itxuz@itxuz.com"
 [[params.social]]
   title = "Github"
-  url = "https://github.com/mjyi"
+  url = "https://github.com/howie6879"
+  
+[[params.social]]
+  title = "Email"
+  url = "mailto:xiaozizayang@gmail.com"
+
 [[params.social]]
   title = "RSS"
-  url = "" #default index.xml
-
+  url = ""
 
 [[menu.main]]
   name = "Archives"
@@ -54,7 +69,7 @@ disqusShortname = "mjyi-io" #delete or comment to disable Disqus comments
   weight = -180
 [[menu.main]]
   name = "About"
-  url = "/about"
+  url = "/about/"
   weight = -160
 ```
 
@@ -63,17 +78,19 @@ disqusShortname = "mjyi-io" #delete or comment to disable Disqus comments
 in archetypes/post.md
 
 ```
-+++
-tags = ""
-categories = ""
+---
+title: 如今的生活—2017
+date: 2017-01-29
 image = "/images/thumbs/0.jpg" #set a picture, or randomly select one in the folder images/thumbs
-draft = true
-comments = true
+categories:
+  - 随笔
+tags: [随笔]
+dis_comments: true
 toc = true
 author = ""
 author_url = ""
-+++
-
+draft = true
+---
 ```
 
 
