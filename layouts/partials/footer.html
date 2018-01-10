@@ -144,7 +144,9 @@
     skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'], ignoreClass:"comment-content" }, "HTML-CSS":
     { availableFonts: ["STIX","TeX"], showMathMenu: false } }); MathJax.Hub.Queue(["Typeset",MathJax.Hub]); </script>
 <script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
+{{ if .Site.Params.CNZZ }}
+<script src="{{ .Site.Params.CNZZ }}" language="JavaScript"></script>
+{{ end }}
 <script data-no-instant>
     InstantClick.on('change', function (isInitialLoad) {
         var blocks = document.querySelectorAll('pre code');
