@@ -1,4 +1,4 @@
-baseurl = "http://blog.howie6879.cn"
+baseurl = "https://www.howie6879.cn"
 title = "howie6879"
 canonifyurls = true
 paginate = 6
