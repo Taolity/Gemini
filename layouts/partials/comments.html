@@ -1,12 +1,14 @@
 {{ if .Site.Params.SiteComments }}
 {{ if not .Params.dis_comments }}
 <div class="comment-container">
-    <div id="comments" class="clearfix">
-            <div id="container"></div>
-            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-            <script>
-                var gitment = new Gitment({
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <div id="gitalk-container" class="clearfix">
+        <!-- <div id="container"></div>
+        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        <script>
+            var gitment = new Gitment({
                 id: location.href, // 可选。默认为 location.href
                 owner: '{{ .Site.Params.comment.owner }}',
                 repo: '{{ .Site.Params.comment.repo }}',
@@ -14,9 +16,22 @@
                     client_id: '{{ .Site.Params.comment.client_id }}',
                     client_secret: '{{ .Site.Params.comment.client_secret }}',
                 },
-                })
-                gitment.render(document.getElementById('comments'))
-            </script>
+            })
+            gitment.render(document.getElementById('comments'))
+        </script> -->
+        <script>
+            var gitalk = new Gitalk({
+                clientID: '{{ .Site.Params.comment.client_id }}',
+                clientSecret: '{{ .Site.Params.comment.client_secret }}',
+                repo: '{{ .Site.Params.comment.repo }}',
+                owner: '{{ .Site.Params.comment.owner }}',
+                admin: ['howie6879'],
+                id: location.pathname, // Ensure uniqueness and length less than 50
+                distractionFreeMode: false // Facebook-like distraction free mode
+            })
+
+            gitalk.render('gitalk-container')
+        </script>
     </div>
 </div>
 {{ end }}
